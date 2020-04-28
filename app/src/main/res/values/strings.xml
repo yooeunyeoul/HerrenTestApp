@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">HerrenTestApp</string>
+
+    <string name="img_profile">샵 프로필 사진</string>
 </resources>
