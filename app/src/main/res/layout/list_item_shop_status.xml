@@ -1,91 +1,107 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical">
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="11dp"
-        android:background="@color/grey" />
+<layout>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <data>
+
+        <variable
+            name="ShopStatus"
+            type="com.herren.herrentestapp.shopInfo.data.ShopStatus" />
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/white"
-        android:paddingStart="16dp"
-        android:paddingTop="18dp"
-        android:paddingEnd="16dp"
-        android:paddingBottom="18dp">
+        android:orientation="vertical">
 
-        <ImageView
-            android:id="@+id/img_profile"
-            android:layout_width="45dp"
-            android:layout_height="45dp"
-            android:adjustViewBounds="true"
-            android:contentDescription="@string/img_profile"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:src="@tools:sample/avatars" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="11dp"
+            android:background="@color/grey" />
 
-        <LinearLayout
-            android:layout_width="wrap_content"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="23dp"
-            android:orientation="vertical"
-            app:layout_constrainedWidth="true"
-            app:layout_constraintEnd_toStartOf="@id/tv_status"
-            app:layout_constraintHorizontal_bias="0"
-            app:layout_constraintStart_toEndOf="@+id/img_profile"
-            app:layout_constraintTop_toTopOf="@+id/img_profile">
+            android:background="@color/white"
+            android:paddingStart="16dp"
+            android:paddingTop="18dp"
+            android:paddingEnd="16dp"
+            android:paddingBottom="18dp">
 
-            <TextView
-                android:id="@+id/tv_shop_name"
+            <ImageView
+                android:id="@+id/img_profile"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:adjustViewBounds="true"
+                android:contentDescription="@string/img_profile"
+                app:imageFromUrl="@{ShopStatus.url}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:src="@tools:sample/avatars" />
+
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ellipsize="end"
-                android:maxLines="1"
-                android:textColor="@color/grey3"
-                android:textSize="14sp"
-                tools:text="장진웅" />
+                android:layout_marginStart="23dp"
+                android:orientation="vertical"
+                app:layout_constrainedWidth="true"
+                app:layout_constraintEnd_toStartOf="@id/tv_status"
+                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintStart_toEndOf="@+id/img_profile"
+                app:layout_constraintTop_toTopOf="@+id/img_profile">
+
+                <TextView
+                    android:id="@+id/tv_shop_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:text="@{ShopStatus.name}"
+                    android:textColor="@color/grey3"
+                    android:textSize="14sp"
+                    tools:text="장진웅" />
+
+                <TextView
+                    android:id="@+id/tv_reg_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="7dp"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:text="@{ShopStatus.regDate}"
+                    android:textColor="@color/grey2"
+                    android:textSize="12sp"
+                    tools:text="등록날짜 : 2020.03.01" />
+
+                <TextView
+                    android:id="@+id/tv_view_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:text="@{ShopStatus.viewCount}"
+                    android:textColor="@color/grey3"
+                    android:textSize="12sp"
+                    tools:text="조회수:12" />
+
+            </LinearLayout>
 
             <TextView
-                android:id="@+id/tv_reg_date"
+                android:id="@+id/tv_status"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="7dp"
-                android:ellipsize="end"
-                android:maxLines="1"
-                android:textColor="@color/grey2"
+                android:text="@{ShopStatus.state}"
+                android:textColor="@color/blue"
                 android:textSize="12sp"
-                tools:text="등록날짜 : 2020.03.01" />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/img_profile"
+                tools:text="정상" />
 
-            <TextView
-                android:id="@+id/tv_view_count"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="6dp"
-                android:ellipsize="end"
-                android:maxLines="1"
-                android:textColor="@color/grey3"
-                android:textSize="12sp"
-                tools:text="조회수:12" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-        </LinearLayout>
+    </LinearLayout>
 
-        <TextView
-            android:id="@+id/tv_status"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/blue"
-            android:textSize="12sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/img_profile"
-            tools:text="정상" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-</LinearLayout>
+</layout>

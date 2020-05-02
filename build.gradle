@@ -1,10 +1,24 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
 buildscript {
-    
+
+
+    //App Dependencies
+    ext {
+        appCompatVersion = '1.1.0'
+        constraintLayoutVersion = '1.1.3'
+        glideVersion = '4.9.0'
+        daggerVersion = '2.23.2'
+        retrofit = '2.6.0'
+        okhttp = '3.10.0'
+        debugLog = '2.2.0'
+    }
+
     repositories {
         google()
         jcenter()
+        mavenCentral()
+        maven { url 'https://maven.google.com' }
         
     }
     dependencies {
